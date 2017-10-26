@@ -11,24 +11,30 @@ menu{
 }
 menu .choose{
 	display: flex;
+	/*overflow: hidden;*/
 }
 menu .choose .char{
-	width: 100px;
-	height: 1000px;
-	opacity: 1;
+	display: block;
+	transition: .5s ease;
+	border: 1px solid transparent;
+	border-shadow: 0 0 10px rgba(0,0,0,0.5);;
+}
+menu .choose .char:hover{
+
 }
 menu .choose .n1{
 	background-image: url("../images/DW.jpg");
+	background-position: 48% 38%;
 }
 menu .choose .n2{
-
+	background-position: center 93%;
 	background-image: url("../images/lotr.jpg");
 }
 menu .choose .n3{
-
+	background-position: 50% 4%;
 	background-image: url("../images/marvel.jpg");
 }
 menu .choose .n4{
-	
+	background-position: 57% 63%;
 	background-image: url("../images/star-wars.jpg");
 }
