@@ -1,0 +1,34 @@
+:root{
+	--width-of-screen: ;
+}
+
+body{
+	margin: 0;
+}
+menu{
+	padding: 0;
+	margin: 0;
+}
+menu .choose{
+	display: flex;
+}
+menu .choose .char{
+	width: 100px;
+	height: 1000px;
+	opacity: 1;
+}
+menu .choose .n1{
+	background-image: url("../images/DW.jpg");
+}
+menu .choose .n2{
+
+	background-image: url("../images/lotr.jpg");
+}
+menu .choose .n3{
+
+	background-image: url("../images/marvel.jpg");
+}
+menu .choose .n4{
+	
+	background-image: url("../images/star-wars.jpg");
+}
