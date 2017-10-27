@@ -1,9 +1,9 @@
-:root{
-	--width-of-screen: ;
-}
-
 body{
 	margin: 0;
+	background-color: braun;
+}
+a{
+	text-decoration: none;
 }
 menu{
 	padding: 0;
@@ -12,15 +12,26 @@ menu{
 menu .choose{
 	display: flex;
 	/*overflow: hidden;*/
+
 }
 menu .choose .char{
+	transform: skewX(-4deg);
 	display: block;
 	transition: .5s ease;
 	border: 1px solid transparent;
-	border-shadow: 0 0 10px rgba(0,0,0,0.5);;
-}
-menu .choose .char:hover{
+	border-shadow: 0 0 10px rgba(0,0,0,0.5);
 
+}
+menu .choose .char .desc{
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: space-between;
+}
+menu .choose .char .desc .name{
+	border: 2px solid #fff;
 }
 menu .choose .n1{
 	background-image: url("../images/DW.jpg");

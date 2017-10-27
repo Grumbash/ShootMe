@@ -21,12 +21,16 @@ window.onload = function(){
 		img_count[i].addEventListener('mouseover', function(){
 			
 			this.style.width = elem_width*2+"px";
+			console.log(1);
 			this.nextSibling = elem_width/2+"px";
+			console.log(2);
 			this.previousSibling = elem_width/2+"px";
+			console.log(3);
 		})
 		img_count[i].addEventListener('mouseout',function(){
 
 			event.target.style.width = elem_width+"px";
+			console.log(4);
 		})
 	}
 
