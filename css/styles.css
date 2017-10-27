@@ -1,9 +1,17 @@
 body{
 	margin: 0;
 	background-image: url(../images/bg.jpg);
+	display: flex;
 }
 a{
 	text-decoration: none;
+	color: #fff;
+}
+p{
+	color: #fff;
+}
+.add-chatacter{
+
 }
 menu{
 	padding: 0;

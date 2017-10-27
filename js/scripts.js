@@ -7,12 +7,17 @@ window.onload = function(){
 	// находим наши элементы
 	var choose 	  = document.querySelector('.choose');
 	var img_count = document.querySelectorAll('menu .choose .char');
-	var desc 	  = document.querySelectorAll('.desc');
-	console.log(desc);
+	var addChar   = document.querySelector('.add-chatacter');
 	// даем нашим элементам высоту и ширину
-	choose.style.width  = width+"px";
-	choose.style.height = height+"px";
-	var elem_width = width/img_count.length;
+	var charWidth    = addChar.style.width = width/4+"px"; 
+	console.log(charWidth);
+	console.log(width);
+
+	var charHeight   = addChar.style.height= height+"px";
+	var chooseWidth  = choose.style.width  = width-width/4+"px";
+	var chooseHeight = choose.style.height = height+"px";
+	var elem_width   = width/img_count.length;
+	console.log(chooseWidth);
 	for (var i = 0; i < img_count.length; i++) {
 		img_count[i].style.width 	= elem_width+"px";
 		img_count[i].style.height 	= height+"px";
@@ -36,7 +41,5 @@ window.onload = function(){
 
 	function closeSlide(){
 		this.style.width = elem_width+"px";
-
-		console.log(4);
 	}
 }
