@@ -1,13 +1,14 @@
 window.onload = function(){
 	// замеряем высоту и ширину экрана 
 
-	var width 	= screen.width,
-		height 	= screen.height;
+	var width 	= document.documentElement.clientWidth,
+		height 	= document.documentElement.clientHeight;
 
 	// находим наши элементы
 	var choose 	  = document.querySelector('.choose');
 	var img_count = document.querySelectorAll('menu .choose .char');
-	console.log(choose);
+	var desc 	  = document.querySelectorAll('.desc');
+	console.log(desc);
 	// даем нашим элементам высоту и ширину
 	choose.style.width  = width+"px";
 	choose.style.height = height+"px";
@@ -18,20 +19,24 @@ window.onload = function(){
 
 		// вешаем прослушку 
 
-		img_count[i].addEventListener('mouseover', function(){
-			
-			this.style.width = elem_width*2+"px";
-			console.log(1);
-			this.nextSibling = elem_width/2+"px";
-			console.log(2);
-			this.previousSibling = elem_width/2+"px";
-			console.log(3);
-		})
-		img_count[i].addEventListener('mouseout',function(){
-
-			event.target.style.width = elem_width+"px";
-			console.log(4);
-		})
+		img_count[i].addEventListener('mouseover',slide);
+		img_count[i].addEventListener('mouseout',closeSlide);
 	}
 
+	function slide(){
+		this.style.width = elem_width*2+"px";
+		var elem_par = this.parentNode;
+		for (var i = 0; i < elem_par.children.length; i++) {
+			if(elem_par.children[i] !== this){
+				elem_par.children[i].style.width = (choose.style.width - this.style.width)/elem_par.children[i-1];
+			}
+		}
+		
+	}
+
+	function closeSlide(){
+		this.style.width = elem_width+"px";
+
+		console.log(4);
+	}
 }

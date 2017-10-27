@@ -1,6 +1,6 @@
 body{
 	margin: 0;
-	background-color: braun;
+	background-image: url(../images/bg.jpg);
 }
 a{
 	text-decoration: none;
@@ -18,11 +18,11 @@ menu .choose .char{
 	transform: skewX(-4deg);
 	display: block;
 	transition: .5s ease;
-	border: 1px solid transparent;
+	border: 1px solid #000;
 	border-shadow: 0 0 10px rgba(0,0,0,0.5);
 
 }
-menu .choose .char .desc{
+.desc{
 	height: 100%;
 	width: 100%;
 	display: flex;
@@ -30,22 +30,22 @@ menu .choose .char .desc{
 	align-items: stretch;
 	justify-content: space-between;
 }
-menu .choose .char .desc .name{
+.desc .name{
 	border: 2px solid #fff;
 }
 menu .choose .n1{
 	background-image: url("../images/DW.jpg");
-	background-position: 48% 38%;
+	background-position: 49% 32%;
 }
 menu .choose .n2{
-	background-position: center 93%;
+	background-position: center 74%;
 	background-image: url("../images/lotr.jpg");
 }
 menu .choose .n3{
-	background-position: 50% 4%;
+	background-position: 54% 2%;
 	background-image: url("../images/marvel.jpg");
 }
 menu .choose .n4{
-	background-position: 57% 63%;
+	background-position: 57% 54%;
 	background-image: url("../images/star-wars.jpg");
 }
