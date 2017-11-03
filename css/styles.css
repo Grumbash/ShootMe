@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
 body{
 	margin: 0;
 	background-image: url(../images/bg.jpg);
@@ -5,13 +6,27 @@ body{
 }
 a{
 	text-decoration: none;
-	color: #fff;
 }
 p{
 	color: #fff;
 }
-.add-chatacter{
-
+ul{
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	text-transform: lowercase;
+	color: #fff;
+}
+li{
+	list-style-type: none;
+}
+input{
+	height: 15px;
+	border: none;
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	font-family: 'Audiowide', cursive;
 }
 menu{
 	padding: 0;
@@ -20,16 +35,18 @@ menu{
 menu .choose{
 	display: flex;
 	/*overflow: hidden;*/
-
 }
 menu .choose .char{
 	transform: skewX(-4deg);
 	display: block;
 	transition: .5s ease;
 	border: 1px solid #000;
-	border-shadow: 0 0 10px rgba(0,0,0,0.5);
-
 }
+menu .choose>button{
+	display: flex;
+	background-color: rgba(255,255,255, .6);
+}
+
 .desc{
 	height: 100%;
 	width: 100%;
@@ -39,8 +56,89 @@ menu .choose .char{
 	justify-content: space-between;
 }
 .desc .name{
-	border: 2px solid #fff;
+	font-family: 'Audiowide', cursive;
+	background: rgba(0,0,0, .5);
+	transition: 1s ease;
 }
+.desc .name .buttons{
+	display: flex;
+	justify-content: space-between;
+}
+.desc .name input{
+	height: 1.5em;
+	background-color: rgba(255,255,255, .4);
+	color:#000;
+}
+.desc .stats{
+	font-family: 'Audiowide', cursive;
+	background: rgba(0,0,0, .5);
+	transition: 1s ease;
+}
+.desc .stats ul{
+	text-transform: capitalize;
+}
+.desc .stats ul li{
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px dashed rgba(255,255,255, .5);
+}
+.desc .stats input{
+	width: 40px;
+	background-color: rgba(255,255,255, .4);
+}
+
+.for-add{
+	position: fixed;
+	height: 100%;
+	right: 50%;
+	background-color: #fff;
+	display: none;
+	transform: skewX(-4deg);
+	transition: .5s ease;
+}
+.for-add .add-char{
+	float: left;
+}
+.for-add .close{
+	float: right;
+}
+
+/*----------------------------------------------------------------------------------------------------------------*/
+
+.file-upload {
+     position: relative; /* Даем возможность делать позиционирование, внутри данного элемента */
+     right: 50%
+     /*overflow: hidden;  Все что выходит за пределы - скрываем */
+     width: 20%;  /*Задаем ширину кнопки выбора файла */
+     height: 100%; /* Задаем высоту кнопки выбора файла */ 
+    /* border-radius: 3px;
+     padding: 8px 4px;*/
+     color: #000;
+     text-align: center;
+}
+
+.file-upload input[type="file"]{
+    display: none; /* Обязательно скрываем настоящий Input File */
+}
+.file-upload label {
+     /* Растягиваем label на всю возможную площадь блока .file-upload */
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     position: absolute;
+     background-color: rgba(0,0,0, .6);
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     cursor: pointer;
+}
+.file-upload span {
+     line-height: 100%; /* Делаем вертикальное выравнивание текста, который написан на кнопке */
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------*/
 menu .choose .n1{
 	background-image: url("../images/DW.jpg");
 	background-position: 49% 32%;
