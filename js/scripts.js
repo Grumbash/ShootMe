@@ -62,6 +62,8 @@ function mainSettings() {
 		img_count[i].addEventListener('mouseout',closeSlide);
 	}
 
+	
+
 	function slide(){
 		this.style.width = elem_width*2+"px";
 		var elem_par = this.parentNode;
@@ -81,36 +83,49 @@ function mainSettings() {
 		this.parentNode.parentNode.parentNode.parentNode.remove();
 		mainSettings();
 	}
+
+
 }
 function addCharecter(){
 	var new_elem = document.createElement('div');
 	new_elem.classList.add('char');
-	new_elem.innerHTML = '<div class="desc">'+
-						'<div class="name">'+
-						'<div class="buttons">'+
-							'<button class="edit">Edit</button>'+
-							'<button class="remove">Remove</button>'+
-						'</div>'+
-						'<p>'+
-							
-						'</p>'+
-					'</div>'+
-					'<div class="stats">'+
-						'<ul>'+
-							'<li><span>weapon skill(ws)</span><span></span></li>'+
-							'<li><span>ballistic skill (bs)</span><span></span></li>'+
-							'<li><span>strength (s)</span><span></span></li>'+
-							'<li><span>toughness (t)</span><span></span></li>'+
-							'<li><span>agility (ag)</span><span></span></li>'+
-							'<li><span>intelligence (int)</span><span></span></li>'+
-							'<li><span>perseprion (per)</span><span></span></li>'+
-							'<li><span>willpower (wp)</span><span></span></li>'+
-							'<li><span>fellowship (fel)</span><span></span></li>'+
-							'<li><span>influence (inf)</span><span></span></li>'+
-						'</ul>'+
-					'</div>'+
-				'</div>';
+	var get_name = document.querySelector('.innerName').value;
+	var get_skills = document.querySelectorAll('.stats ul li input');
+	var parnt = document.querySelector('.stats ul');
+	new_elem.innerHTML =    '<div class="desc">'+
+								'<div class="name">'+
+									'<div class="buttons">'+
+										'<button class="edit">Edit</button>'+
+										'<button class="remove">Remove</button>'+
+									'</div>'+
+									'<p>'+
+										get_name+
+									'</p>'+
+								'</div>'+
+								'<div class="stats">'+
+									'<ul>'+
+										'<li class="to_check"><span>weapon skill(ws)</span></li>'+
+										'<li><span>ballistic skill (bs)</span></li>'+
+										'<li><span>strength (s)</span></li>'+
+										'<li><span>toughness (t)</span></li>'+
+										'<li><span>agility (ag)</span></li>'+
+										'<li><span>intelligence (int)</span></li>'+
+										'<li><span>perseprion (per)</span></li>'+
+										'<li><span>willpower (wp)</span></li>'+
+										'<li><span>fellowship (fel)</span></li>'+
+										'<li><span>influence (inf)</span></li>'+
+									'</ul>'+
+								'</div>'+
+							'</div>';
+	for (var i = 0; i < get_skills.length; i++) {
+		var li_inner = document.createElement('span');
+		li_inner.innerText = get_skills[i].value;
+		var to_check = document.querySelector('.to_check');
+		console.log(to_check);
+	}
+	
 	choose.appendChild(new_elem);
+
 	mainSettings();
 }
 mainSettings();
