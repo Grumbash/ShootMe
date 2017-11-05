@@ -91,7 +91,34 @@ function addCharecter(){
 	new_elem.classList.add('char');
 	var get_name = document.querySelector('.innerName').value;
 	var get_skills = document.querySelectorAll('.stats ul li input');
-	var parnt = document.querySelector('.stats ul');
+
+	for (var i = 0; i < get_skills.length; i++) {
+		var li_inner 		= document.createElement('span').textContent = get_skills[i].value
+		// li_inner.textContent = get_skills[i].value;
+		switch(i){
+			case 0:
+			var ws = li_inner;
+			case 1:
+			var bs = li_inner;
+			case 2:
+			var s = li_inner;
+			case 3:
+			var t = li_inner;
+			case 4:
+			var ag = li_inner;
+			case 5:
+			var int = li_inner;
+			case 6:
+			var per = li_inner;
+			case 7:
+			var wp = li_inner;
+			case 8:
+			var fel = li_inner;
+			case 9:
+			var inf = li_inner;
+		}
+
+	}
 	new_elem.innerHTML =    '<div class="desc">'+
 								'<div class="name">'+
 									'<div class="buttons">'+
@@ -104,28 +131,28 @@ function addCharecter(){
 								'</div>'+
 								'<div class="stats">'+
 									'<ul>'+
-										'<li class="to_check"><span>weapon skill(ws)</span></li>'+
-										'<li><span>ballistic skill (bs)</span></li>'+
-										'<li><span>strength (s)</span></li>'+
-										'<li><span>toughness (t)</span></li>'+
-										'<li><span>agility (ag)</span></li>'+
-										'<li><span>intelligence (int)</span></li>'+
-										'<li><span>perseprion (per)</span></li>'+
-										'<li><span>willpower (wp)</span></li>'+
-										'<li><span>fellowship (fel)</span></li>'+
-										'<li><span>influence (inf)</span></li>'+
+										'<li class="ws"><span>weapon skill(ws)</span><span>'+ws+'</span></li>'+
+										'<li class="bs"><span>ballistic skill (bs)</span><span>'+bs+'</span></li>'+
+										'<li class="s"><span>strength (s)</span><span>'+s+'</span></li>'+
+										'<li class="t"><span>toughness (t)</span><span>'+t+'</span></li>'+
+										'<li class="ag"><span>agility (ag)</span><span>'+ag+'</span></li>'+
+										'<li class="int"><span>intelligence (int)</span><span>'+int+'</span></li>'+
+										'<li class="per"><span>perseprion (per)</span><span>'+per+'</span></li>'+
+										'<li class="wp"><span>willpower (wp)</span><span>'+wp+'</span></li>'+
+										'<li class="fel"><span>fellowship (fel)</span><span>'+fel+'</span></li>'+
+										'<li class="inf"><span>influence (inf)</span><span>'+inf+'</span></li>'+
 									'</ul>'+
 								'</div>'+
 							'</div>';
-	for (var i = 0; i < get_skills.length; i++) {
-		var li_inner = document.createElement('span');
-		li_inner.innerText = get_skills[i].value;
-		var to_check = document.querySelector('.to_check');
-		console.log(to_check);
-	}
-	
+
 	choose.appendChild(new_elem);
 
 	mainSettings();
 }
 mainSettings();
+
+
+
+
+
+
