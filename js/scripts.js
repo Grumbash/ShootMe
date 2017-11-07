@@ -5,20 +5,20 @@ var width 	= document.documentElement.clientWidth,
 	height 	= document.documentElement.clientHeight;
 
 // находим наши элементы
-var choose 	  = document.querySelector('.choose');
-var img_count = document.querySelectorAll('menu .choose .char');
-var addChar   = document.querySelector('.addChar');
-var names_of  = document.querySelectorAll('.desc .name');
-var stats 	  = document.querySelectorAll('.desc .stats');
-var for_add	  = document.querySelector('.for-add');
-var close_for_add = document.querySelector('.name .close');
-
-
+var choose 	  		= document.querySelector('.choose');
+var img_count 		= document.querySelectorAll('menu .choose .char');
+var addChar   		= document.querySelector('.addChar');
+var names_of  		= document.querySelectorAll('.desc .name');
+var stats 	  		= document.querySelectorAll('.desc .stats');
+var for_add	  		= document.querySelector('.for-add');
+var close_for_add 	= document.querySelector('.name .close');
+var showChar 		= document.querySelector('.showChar');
+var showChar_close  = document.querySelector('.showChar button')
 
 // вызываем окно добаления перса
 
 for_add.style.display = 'none';
-addChar.addEventListener('click',function(){
+addChar.addEventListener('click',function (){
 	if (for_add.style.display === 'none') {
 		for_add.style.display = 'block';
 		console.log('block');
@@ -26,8 +26,13 @@ addChar.addEventListener('click',function(){
 		for_add.style.display ='none';
 		console.log('none');
 	}
-
 });
+
+// закрываем полный дист персонажа 
+showChar_close.addEventListener('click', function(){
+	showChar.style.display = 'none';
+});
+	
 
 // находим кнопку добавить и вешаем прослоушку с функией добавления
 
@@ -42,8 +47,10 @@ close_for_add.addEventListener('click', function(){
 function mainSettings() {
 	//удаляем елемент  
 	var remove_char = document.querySelectorAll('.remove');
+	var expland_car = document.querySelectorAll('.expland');
 	for (var i = 0; i < remove_char.length; i++) {
 		remove_char[i].addEventListener('click', removeChar)
+		expland_car[i].addEventListener('click', explandChar)
 	}
 
 	// даем нашим элементам высоту и ширину
@@ -52,17 +59,25 @@ function mainSettings() {
 	var chooseWidth  	= choose.style.width  = width-25+"px";
 	var chooseHeight 	= choose.style.height = height+"px";
 	var elem_width   	= width/img_count.length;
-	for_add.style.width = width/img_count.length+"px";
+	for_add.style.width = width+"px";
+
+	showChar.style.width = width/16*14+"px";
+	showChar.style.left = width/16 +"px";
+
+
+	img_count[1].style.backgroundImage = 'url("images/DW.jpg")';
+	img_count[2].style.backgroundImage = 'url("images/lotr.jpg")';		
+	img_count[3].style.backgroundImage = 'url("images/marvel.jpg")';			
+	img_count[4].style.backgroundImage = 'url("images/star-wars.jpg")';	
 
 	for (var i = 0; i < img_count.length; i++) {
 		img_count[i].style.width 	= elem_width+"px";
 		img_count[i].style.height 	= height+"px";
+		
 
 		img_count[i].addEventListener('mouseover',slide);
 		img_count[i].addEventListener('mouseout',closeSlide);
 	}
-
-	
 
 	function slide(){
 		this.style.width = elem_width*2+"px";
@@ -72,7 +87,6 @@ function mainSettings() {
 				elem_par.children[i].style.width = (choose.style.width - this.style.width)/elem_par.children[i-1];
 			}
 		}
-		
 	}
 
 	function closeSlide(){
@@ -84,13 +98,32 @@ function mainSettings() {
 		mainSettings();
 	}
 
+	function explandChar(){
+		showChar.style.display = 'flex';
+		par = this.parentNode.parentNode.parentNode;
+		arr = par.lastChild;
+		arr_li = arr.lastChild;
+		showChar.childNodes[1].innerHTML = arr_li.innerHTML;
+		showChar.style.backgroundImage = par.parentNode.style.backgroundImage;
+		names_of_char = par.children[0].children[1];
+		var name_on_show = document.querySelector('.black-line');
+		name_on_show.innerHTML = names_of_char.innerHTML;
 
+	}
 }
+
+
 function addCharecter(){
+	
 	var new_elem = document.createElement('div');
 	new_elem.classList.add('char');
+
 	var get_name = document.querySelector('.innerName').value;
+
 	var get_skills = document.querySelectorAll('.stats ul li input');
+
+	// var btn_upload = document.querySelector('.file-upload input').files[0];
+	// console.log(btn_upload.name);
 
 	for (var i = 0; i < get_skills.length; i++) {
 		var li_inner 		= document.createElement('span').textContent = get_skills[i].value
@@ -119,11 +152,13 @@ function addCharecter(){
 		}
 
 	}
+
 	new_elem.innerHTML =    '<div class="desc">'+
 								'<div class="name">'+
 									'<div class="buttons">'+
-										'<button class="edit">Edit</button>'+
-										'<button class="remove">Remove</button>'+
+										'<button class="edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
+										'<button class="expland"><i class="fa fa-arrows-alt" aria-hidden="true"></i></button>'+
+										'<button class="remove"><i class="fa fa-trash" aria-hidden="true"></i></button>'+
 									'</div>'+
 									'<p>'+
 										get_name+
@@ -146,7 +181,7 @@ function addCharecter(){
 							'</div>';
 
 	choose.appendChild(new_elem);
-
+	
 	mainSettings();
 }
 mainSettings();

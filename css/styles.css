@@ -62,7 +62,14 @@ menu .choose>button{
 }
 .desc .name .buttons{
 	display: flex;
+	background:#000;
 	justify-content: space-between;
+}
+.desc .name .buttons button{
+	color:#fff;
+	background-color: #000;
+	border:none;
+	font-size: 1rem;
 }
 .desc .name input{
 	height: 1.5em;
@@ -90,38 +97,106 @@ menu .choose>button{
 .for-add{
 	position: fixed;
 	height: 100%;
-	right: 50%;
+	left: 0%;
 	background-color: #fff;
 	display: none;
-	transform: skewX(-4deg);
+	/*transform: skewX(-4deg);*/
 	transition: .5s ease;
 }
-.for-add .add-char{
-	float: left;
+.for-add button{
+	background: #000;
+	border:none;
+	color: #fff;
+	font-size: 1rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	margin: 0;
+	position: absolute;
+	right:0;
 }
-.for-add .close{
-	float: right;
+
+.for-add button.add-char{
+	right: 1.5rem;
+	z-index: 1000;
+}
+
+.showChar{
+	background: #000;
+	position: absolute;
+	top: 0;
+	display: none; /*----------------------------*/
+	flex-direction: row;
+	height: 100%;
+	color:#fff;
+	background-position: center center;
+	background-repeat: repeat;
+}
+.showChar button{
+	width: 1.5rem;
+	height: 1.5rem;
+	border:none;
+	font-size: 1rem;
+	position: absolute;
+	right: 0;
+	z-index: 100;
+	border-radius: 3px;
+	/*background: ;*/
+}
+.showChar .black-line{
+	position: absolute;
+	top:0;
+	width: 100%;
+	height: 1.5rem;
+	background: rgba(0,0,0, .8);
+}
+.showChar .black-line p{
+	margin-top: 0;
+}
+.showChar ul {
+	margin-top: 1.5rem;
+	width:100%;
+	text-transform: capitalize;
+	display: inline-flex;
+	justify-content: space-between;
+	height: 15%;
+	background: rgba(0,0,0, .8);
+}
+
+.showChar ul li{
+	display: flex;
+	flex-direction: column;
+
+}
+.showChar ul li span{
+	border:1px solid #fff;
+	text-align: center;
+}
+.showChar ul li span:first-child{
+	border-radius: 3px 3px 0 0;
+	padding:15px 10px;
+}
+
+.showChar ul li span:last-child{
+	font-size: large;
+	border-radius: 0 0 3px 3px;
+	height: 100%;
 }
 
 /*----------------------------------------------------------------------------------------------------------------*/
 
 .file-upload {
-     position: relative; /* Даем возможность делать позиционирование, внутри данного элемента */
+     position: relative; 
      right: 50%
-     /*overflow: hidden;  Все что выходит за пределы - скрываем */
-     width: 20%;  /*Задаем ширину кнопки выбора файла */
-     height: 100%; /* Задаем высоту кнопки выбора файла */ 
-    /* border-radius: 3px;
-     padding: 8px 4px;*/
+     width: 20%; 
+     height: 100%; 
      color: #000;
      text-align: center;
 }
 
 .file-upload input[type="file"]{
-    display: none; /* Обязательно скрываем настоящий Input File */
+    display: none; 
 }
 .file-upload label {
-     /* Растягиваем label на всю возможную площадь блока .file-upload */
      display: flex;
      flex-direction: column;
      justify-content: space-around;
@@ -134,24 +209,23 @@ menu .choose>button{
      cursor: pointer;
 }
 .file-upload span {
-     line-height: 100%; /* Делаем вертикальное выравнивание текста, который написан на кнопке */
+     line-height: 100%; 
 }
-
 
 /*----------------------------------------------------------------------------------------------------------------*/
 menu .choose .n1{
-	background-image: url("../images/DW.jpg");
+	
 	background-position: 49% 32%;
 }
 menu .choose .n2{
 	background-position: center 74%;
-	background-image: url("../images/lotr.jpg");
+	
 }
 menu .choose .n3{
 	background-position: 54% 2%;
-	background-image: url("../images/marvel.jpg");
+
 }
 menu .choose .n4{
 	background-position: 57% 54%;
-	background-image: url("../images/star-wars.jpg");
+	
 }
