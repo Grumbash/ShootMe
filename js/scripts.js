@@ -14,7 +14,7 @@ var for_add	  		= document.querySelector('.for-add');
 var close_for_add 	= document.querySelector('.name .close');
 var showChar 		= document.querySelector('.showChar');
 var showChar_close  = document.querySelector('.showChar button')
-
+var input_for_upload = document.querySelector('.file-upload input[type="file"]');
 // вызываем окно добаления перса
 
 for_add.style.display = 'none';
@@ -32,6 +32,8 @@ addChar.addEventListener('click',function (){
 showChar_close.addEventListener('click', function(){
 	showChar.style.display = 'none';
 });
+
+input_for_upload.addEventListener('change', getPhoto);
 	
 
 // находим кнопку добавить и вешаем прослоушку с функией добавления
@@ -42,6 +44,8 @@ add_char.addEventListener('click',addCharecter);
 close_for_add.addEventListener('click', function(){
 	for_add.style.display = for_add.style.display === 'none' ? '' : 'none';
 });
+
+
 
 // вешаем прослушку на анимацию слайда
 function mainSettings() {
@@ -112,6 +116,14 @@ function mainSettings() {
 	}
 }
 
+function getPhoto() {
+	var $elem 		= this,
+		label 		= $elem.parentElement;
+		file_name 	= $elem.files[0].name;
+	console.log(file_name);
+	label.style.backgroundImage = 'url("images/'+file_name+'")';
+}
+
 
 function addCharecter(){
 	
@@ -122,8 +134,8 @@ function addCharecter(){
 
 	var get_skills = document.querySelectorAll('.stats ul li input');
 
-	// var btn_upload = document.querySelector('.file-upload input').files[0];
-	// console.log(btn_upload.name);
+	var btn_upload = document.querySelector('.file-upload input').files[0].name;
+	new_elem.style.backgroundImage = 'url("images/'+file_name+'")';
 
 	for (var i = 0; i < get_skills.length; i++) {
 		var li_inner 		= document.createElement('span').textContent = get_skills[i].value

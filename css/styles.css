@@ -80,6 +80,8 @@ menu .choose>button{
 	font-family: 'Audiowide', cursive;
 	background: rgba(0,0,0, .5);
 	transition: 1s ease;
+    position: relative;
+    z-index: 1;
 }
 .desc .stats ul{
 	text-transform: capitalize;
@@ -97,7 +99,9 @@ menu .choose>button{
 .for-add{
 	position: fixed;
 	height: 100%;
-	left: 0%;
+	left: 0;
+	top: 0;
+	width: 100%;
 	background-color: #fff;
 	display: none;
 	/*transform: skewX(-4deg);*/
@@ -113,6 +117,7 @@ menu .choose>button{
 	margin: 0;
 	position: absolute;
 	right:0;
+	z-index: 1;
 }
 
 .for-add button.add-char{
@@ -185,12 +190,13 @@ menu .choose>button{
 /*----------------------------------------------------------------------------------------------------------------*/
 
 .file-upload {
-     position: relative; 
-     right: 50%
-     width: 20%; 
-     height: 100%; 
-     color: #000;
-     text-align: center;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	color: #000;
+	text-align: center;
+	z-index: 0;
 }
 
 .file-upload input[type="file"]{
